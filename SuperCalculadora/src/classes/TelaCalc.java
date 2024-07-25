@@ -55,7 +55,7 @@ public class TelaCalc extends javax.swing.JFrame {
         jLabel2.setText("Digite um número:");
 
         spnNum.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        spnNum.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
+        spnNum.setModel(new javax.swing.SpinnerNumberModel(1, -50, 50, 1));
 
         btnCalc.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnCalc.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\Desktop\\Programação\\JavaNetBeans\\SuperCalculadora\\src\\imagens\\operadores_1.png")); // NOI18N
