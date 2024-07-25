@@ -55,6 +55,7 @@ public class TelaCalc extends javax.swing.JFrame {
         jLabel2.setText("Digite um número:");
 
         spnNum.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        spnNum.setModel(new javax.swing.SpinnerNumberModel(1, 1, 50, 1));
 
         btnCalc.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         btnCalc.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabri\\Desktop\\Programação\\JavaNetBeans\\SuperCalculadora\\src\\imagens\\operadores_1.png")); // NOI18N
@@ -166,38 +167,36 @@ public class TelaCalc extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(spnNum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel1)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(spnNum, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCalc)
-                        .addGap(39, 39, 39))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(53, 53, 53))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(147, 147, 147))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCalc)
                             .addComponent(spnNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addGap(37, 37, 37)
+                        .addGap(40, 40, 40)
                         .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCalc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(95, 95, 95))))
         );
@@ -206,8 +205,6 @@ public class TelaCalc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        // deixando o painel dos valores visível novamente
-        pnlResultados.setVisible(true);
 
 // pegando o valor que foi digitado no spinner e fazendo o cast para int
         int numero = Integer.parseInt(spnNum.getValue().toString());
@@ -222,15 +219,18 @@ public class TelaCalc extends javax.swing.JFrame {
 
 // Raiz quadrada:
         double quadrada = Math.sqrt(numero);
-        lblRaizQuad.setText(Double.toString(quadrada));
+        lblRaizQuad.setText(String.format("%.2f", quadrada));
 
 // Raiz cúbica:
         double cubica = Math.cbrt(numero);
-        lblRaizCub.setText(Double.toString(cubica));
+        lblRaizCub.setText(String.format("%.2f", cubica));
 
 // Valor absoluto:
         double absoluto = Math.abs(numero);
         lblValAbsol.setText(Double.toString(absoluto));
+        
+        // deixando o painel dos valores visível novamente
+        pnlResultados.setVisible(true);
     }//GEN-LAST:event_btnCalcActionPerformed
 
     /**
