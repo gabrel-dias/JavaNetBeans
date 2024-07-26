@@ -35,6 +35,8 @@ public class TelaIdade extends javax.swing.JFrame {
         lblIdade = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblMaioridade = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblVotoOpcional = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -43,11 +45,6 @@ public class TelaIdade extends javax.swing.JFrame {
         jLabel1.setText("Ano de nascimento:");
 
         txtAno.setToolTipText("");
-        txtAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnoActionPerformed(evt);
-            }
-        });
 
         btnCalculaIdade.setText("Calcular");
         btnCalculaIdade.addActionListener(new java.awt.event.ActionListener() {
@@ -68,14 +65,16 @@ public class TelaIdade extends javax.swing.JFrame {
         lblMaioridade.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblMaioridade.setText("<vazio>");
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel5.setText("Voto opcional:");
+
+        lblVotoOpcional.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblVotoOpcional.setText("<vazio>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCalculaIdade)
-                .addGap(71, 71, 71))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,8 +89,16 @@ public class TelaIdade extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblVotoOpcional)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCalculaIdade)
+                .addGap(81, 81, 81))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,23 +109,23 @@ public class TelaIdade extends javax.swing.JFrame {
                     .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCalculaIdade)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblIdade))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblMaioridade))
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblVotoOpcional))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnoActionPerformed
 
     private void btnCalculaIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaIdadeActionPerformed
         // pegando o valor digitado no campo da idade
@@ -138,7 +145,14 @@ public class TelaIdade extends javax.swing.JFrame {
 //        } else {
 //            lblMaioridade.setText("não");
 //        }
-
+// verificando se voto é ou não opcional
+        int idade = Integer.parseInt(lblIdade.getText());
+        if ((idade >= 16 && idade < 18) || (idade > 70))
+        {
+            lblVotoOpcional.setText("sim");
+            
+        }
+        else lblVotoOpcional.setText("não");
     }//GEN-LAST:event_btnCalculaIdadeActionPerformed
 
     /**
@@ -181,8 +195,10 @@ public class TelaIdade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblIdade;
     private javax.swing.JLabel lblMaioridade;
+    private javax.swing.JLabel lblVotoOpcional;
     private javax.swing.JTextField txtAno;
     // End of variables declaration//GEN-END:variables
 }
