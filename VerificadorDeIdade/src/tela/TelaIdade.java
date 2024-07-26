@@ -123,16 +123,21 @@ public class TelaIdade extends javax.swing.JFrame {
     private void btnCalculaIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaIdadeActionPerformed
         // pegando o valor digitado no campo da idade
         int ano = Integer.parseInt(txtAno.getText());
+
         // definindo o ano atual de acordo com a data do sistema
         Calendar anoAtual = Calendar.getInstance();
+
         // setando a idade de acordo com o cálculo
         lblIdade.setText(Integer.toString(anoAtual.get(Calendar.YEAR) - ano));
+
         // verificando maioridade
-        if (Integer.parseInt(lblIdade.getText()) >= 18) {
-            lblMaioridade.setText("sim");
-        } else {
-            lblMaioridade.setText("não");
-        }
+        lblMaioridade.setText(Integer.parseInt(lblIdade.getText()) >= 18 ? "sim" : "não");
+
+//        if (Integer.parseInt(lblIdade.getText()) >= 18) {
+//            lblMaioridade.setText("sim");
+//        } else {
+//            lblMaioridade.setText("não");
+//        }
 
     }//GEN-LAST:event_btnCalculaIdadeActionPerformed
 
