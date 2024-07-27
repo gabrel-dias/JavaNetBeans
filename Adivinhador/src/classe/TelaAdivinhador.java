@@ -127,14 +127,23 @@ public class TelaAdivinhador extends javax.swing.JFrame {
         Random random = new Random();
         int numeroAleatorio = random.nextInt(5) + 1;
         int numeroEscolhido = (int) spnNumero.getValue();
-        
+        // double aleatorio = 1 + Math.random() * (5-1);
+
         pnlResposta.setVisible(true);
-        if (numeroAleatorio == numeroEscolhido) {
-            lblResposta.setText("Você acertou!");
-        } else {
-            lblResposta.setText("Você errou, o número certo era: " + numeroAleatorio);
-        }
+
+        String certa = "Você acertou!";
+        String errada = "Você errou, o número certo era: " + numeroAleatorio;
+
+        String resposta = (numeroAleatorio == numeroEscolhido) ? certa : errada;
+        lblResposta.setText(resposta);
         
+        // fiz dessa forma mas achei interessante deixar com o operador ternário pra criar o hábito de usá-lo
+//        if (numeroAleatorio == numeroEscolhido) {
+//            lblResposta.setText("Você acertou!");
+//        } else {
+//            lblResposta.setText("Você errou, o número certo era: " + numeroAleatorio);
+//        }
+
     }//GEN-LAST:event_btnAdivinhaActionPerformed
 
     /**
