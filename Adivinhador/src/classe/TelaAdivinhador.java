@@ -4,6 +4,8 @@
  */
 package classe;
 
+import java.util.Random;
+
 /**
  *
  * @author gabri
@@ -15,6 +17,7 @@ public class TelaAdivinhador extends javax.swing.JFrame {
      */
     public TelaAdivinhador() {
         initComponents();
+        pnlResposta.setVisible(false);
     }
 
     /**
@@ -30,7 +33,9 @@ public class TelaAdivinhador extends javax.swing.JFrame {
         spnNumero = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAdivinha = new javax.swing.JButton();
+        pnlResposta = new javax.swing.JPanel();
+        lblResposta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Adivinhador");
@@ -38,39 +43,62 @@ public class TelaAdivinhador extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/homer_1.png"))); // NOI18N
 
+        spnNumero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         spnNumero.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel2.setText("Adivinhe um número entre 1 e 5");
+        jLabel2.setText("Adivinhe o número entre 1 e 5");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("que o Homer está pensando");
+        jLabel3.setText("que o Homer esteja pensando");
 
-        jButton1.setText("Adivinhar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdivinha.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnAdivinha.setText("Adivinhar!");
+        btnAdivinha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAdivinhaActionPerformed(evt);
             }
         });
+
+        lblResposta.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblResposta.setText("<vazio>");
+
+        javax.swing.GroupLayout pnlRespostaLayout = new javax.swing.GroupLayout(pnlResposta);
+        pnlResposta.setLayout(pnlRespostaLayout);
+        pnlRespostaLayout.setHorizontalGroup(
+            pnlRespostaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRespostaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblResposta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlRespostaLayout.setVerticalGroup(
+            pnlRespostaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRespostaLayout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(lblResposta))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(spnNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(93, 93, 93)
+                .addContainerGap()
+                .addComponent(pnlResposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(49, 49, 49))
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(spnNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdivinha)))
+                .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,23 +108,34 @@ public class TelaAdivinhador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spnNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdivinha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 6, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spnNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlResposta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnAdivinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdivinhaActionPerformed
+        // gerando número aleatório
+        // (achei mais fácil utilizando a própria classe Random, sem ser o método de Math)
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(5) + 1;
+        int numeroEscolhido = (int) spnNumero.getValue();
+        
+        pnlResposta.setVisible(true);
+        if (numeroAleatorio == numeroEscolhido) {
+            lblResposta.setText("Você acertou!");
+        } else {
+            lblResposta.setText("Você errou, o número certo era: " + numeroAleatorio);
+        }
+        
+    }//GEN-LAST:event_btnAdivinhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,10 +173,12 @@ public class TelaAdivinhador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAdivinha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblResposta;
+    private javax.swing.JPanel pnlResposta;
     private javax.swing.JSpinner spnNumero;
     // End of variables declaration//GEN-END:variables
 }
