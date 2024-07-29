@@ -137,7 +137,7 @@ public class TelaIdade extends javax.swing.JFrame {
         // setando a idade de acordo com o cálculo
         lblIdade.setText(Integer.toString(anoAtual.get(Calendar.YEAR) - ano));
 
-        // verificando maioridade
+        // verificando maioridade com operador ternário
         lblMaioridade.setText(Integer.parseInt(lblIdade.getText()) >= 18 ? "sim" : "não");
 
 //        if (Integer.parseInt(lblIdade.getText()) >= 18) {
@@ -147,12 +147,18 @@ public class TelaIdade extends javax.swing.JFrame {
 //        }
 // verificando se voto é ou não opcional
         int idade = Integer.parseInt(lblIdade.getText());
-        if ((idade >= 16 && idade < 18) || (idade > 70))
-        {
+        
+        if (idade <= 15) {
+            lblVotoOpcional.setText("não vota");
+        } else if ((idade >= 16 || idade < 18) || (idade > 70)) {
             lblVotoOpcional.setText("sim");
-            
+            if (idade >= 18 && idade < 70) {
+                lblVotoOpcional.setText("obrigatório");
+            }
+
         }
-        else lblVotoOpcional.setText("não");
+//        else
+//            lblVotoOpcional.setText("não");
     }//GEN-LAST:event_btnCalculaIdadeActionPerformed
 
     /**

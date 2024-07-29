@@ -32,3 +32,6 @@ replay_pid*
 /Adivinhador/dist/
 /SuperCalculadora/dist/
 /VerificadorDeIdade/dist/
+/ParImpar/nbproject/private/
+/ParImpar/build/
+/VerificadorDeIdadeVoto/nbproject/private/
