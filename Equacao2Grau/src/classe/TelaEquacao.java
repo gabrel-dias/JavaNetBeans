@@ -15,6 +15,7 @@ public class TelaEquacao extends javax.swing.JFrame {
      */
     public TelaEquacao() {
         initComponents();
+        pnlResultados.setVisible(false);
     }
 
     /**
@@ -38,7 +39,7 @@ public class TelaEquacao extends javax.swing.JFrame {
         lblA = new javax.swing.JLabel();
         lblC = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnCalcularDelta = new javax.swing.JButton();
         pnlResultados = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -101,11 +102,11 @@ public class TelaEquacao extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 27)); // NOI18N
         jLabel9.setText(".");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton1.setText("<html>Calcular &Delta;</html>");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCalcularDelta.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnCalcularDelta.setText("<html>Calcular &Delta;</html>");
+        btnCalcularDelta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCalcularDeltaActionPerformed(evt);
             }
         });
 
@@ -165,7 +166,7 @@ public class TelaEquacao extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCalcularDelta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,7 +213,7 @@ public class TelaEquacao extends javax.swing.JFrame {
                     .addComponent(lblC)
                     .addComponent(jLabel9))
                 .addGap(29, 29, 29)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCalcularDelta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -224,6 +225,7 @@ public class TelaEquacao extends javax.swing.JFrame {
     private void spnAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnAStateChanged
         // TODO add your handling code here:
         lblA.setText(spnA.getValue().toString());
+        pnlResultados.setVisible(false);
     }//GEN-LAST:event_spnAStateChanged
 
     private void spnBStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnBStateChanged
@@ -238,9 +240,10 @@ public class TelaEquacao extends javax.swing.JFrame {
 
     }//GEN-LAST:event_spnCStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCalcularDeltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularDeltaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        pnlResultados.setVisible(true);
+    }//GEN-LAST:event_btnCalcularDeltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,7 +281,7 @@ public class TelaEquacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCalcularDelta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
