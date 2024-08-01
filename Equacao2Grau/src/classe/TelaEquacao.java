@@ -6,7 +6,7 @@ package classe;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Dias & Professor Gustavo Guanabara
  */
 public class TelaEquacao extends javax.swing.JFrame {
 
@@ -119,11 +119,11 @@ public class TelaEquacao extends javax.swing.JFrame {
 
         lblValorDelta.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         lblValorDelta.setForeground(new java.awt.Color(255, 0, 0));
-        lblValorDelta.setText("jLabel8");
+        lblValorDelta.setText("0");
 
         lblTipoRaiz.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         lblTipoRaiz.setForeground(new java.awt.Color(255, 0, 0));
-        lblTipoRaiz.setText("jLabel10");
+        lblTipoRaiz.setText("0");
 
         javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
         pnlResultados.setLayout(pnlResultadosLayout);
@@ -132,15 +132,13 @@ public class TelaEquacao extends javax.swing.JFrame {
             .addGroup(pnlResultadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlResultadosLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblValorDelta))
-                    .addGroup(pnlResultadosLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTipoRaiz)))
-                .addContainerGap())
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTipoRaiz)
+                    .addComponent(lblValorDelta))
+                .addGap(66, 66, 66))
         );
         pnlResultadosLayout.setVerticalGroup(
             pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +151,7 @@ public class TelaEquacao extends javax.swing.JFrame {
                 .addGroup(pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lblTipoRaiz))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,11 +160,8 @@ public class TelaEquacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlResultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCalcularDelta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,12 +187,12 @@ public class TelaEquacao extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblC)))
-                .addGap(63, 63, 63))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spnA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spnB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,9 +210,9 @@ public class TelaEquacao extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(29, 29, 29)
                 .addComponent(btnCalcularDelta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,11 +238,11 @@ public class TelaEquacao extends javax.swing.JFrame {
 
     private void btnCalcularDeltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularDeltaActionPerformed
         pnlResultados.setVisible(true);
-        int a = Integer.parseInt(lblA.getText()), b = Integer.parseInt(lblB.getText()), c = Integer.parseInt(lblC.getText());
+        int a = Integer.parseInt(spnA.getValue().toString()), b = Integer.parseInt(spnB.getValue().toString()), c = Integer.parseInt(spnC.getValue().toString());
         double d = Math.pow(b, 2) - 4 * a * c;
-        
+
         lblValorDelta.setText(String.format("%.1f", d));
-        
+
         if (d < 0) {
             lblTipoRaiz.setText("<html>Não existem raízes reais</html>");
         } else
