@@ -103,7 +103,7 @@ public class TelaEquacao extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 27)); // NOI18N
         jLabel9.setText(".");
 
-        btnCalcularDelta.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnCalcularDelta.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnCalcularDelta.setText("<html>Calcular &Delta;</html>");
         btnCalcularDelta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
