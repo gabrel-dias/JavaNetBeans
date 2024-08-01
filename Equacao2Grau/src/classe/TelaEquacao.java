@@ -16,6 +16,7 @@ public class TelaEquacao extends javax.swing.JFrame {
     public TelaEquacao() {
         initComponents();
         pnlResultados.setVisible(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -229,20 +230,28 @@ public class TelaEquacao extends javax.swing.JFrame {
     }//GEN-LAST:event_spnAStateChanged
 
     private void spnBStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnBStateChanged
-        // TODO add your handling code here:
         lblB.setText(spnB.getValue().toString());
+        pnlResultados.setVisible(false);
 
     }//GEN-LAST:event_spnBStateChanged
 
     private void spnCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnCStateChanged
-        // TODO add your handling code here:
         lblC.setText(spnC.getValue().toString());
+        pnlResultados.setVisible(false);
 
     }//GEN-LAST:event_spnCStateChanged
 
     private void btnCalcularDeltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularDeltaActionPerformed
-        // TODO add your handling code here:
         pnlResultados.setVisible(true);
+        int a = Integer.parseInt(lblA.getText()), b = Integer.parseInt(lblB.getText()), c = Integer.parseInt(lblC.getText());
+        double d = Math.pow(b, 2) - 4 * a * c;
+        
+        lblValorDelta.setText(String.format("%.1f", d));
+        
+        if (d < 0) {
+            lblTipoRaiz.setText("<html>Não existem raízes reais</html>");
+        } else
+            lblTipoRaiz.setText("<html>Existem raízes reais</html>");
     }//GEN-LAST:event_btnCalcularDeltaActionPerformed
 
     /**
