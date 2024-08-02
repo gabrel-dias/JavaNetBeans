@@ -17,6 +17,7 @@ public class TelaIdade extends javax.swing.JFrame {
      */
     public TelaIdade() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -66,7 +67,7 @@ public class TelaIdade extends javax.swing.JFrame {
         lblMaioridade.setText("<vazio>");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel5.setText("Voto opcional:");
+        jLabel5.setText("Voto opcional?");
 
         lblVotoOpcional.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblVotoOpcional.setText("<vazio>");
@@ -148,7 +149,7 @@ public class TelaIdade extends javax.swing.JFrame {
 // verificando se voto é ou não opcional
         int idade = Integer.parseInt(lblIdade.getText());
         
-        if (idade <= 15) {
+        if (idade < 16) {
             lblVotoOpcional.setText("não vota");
         } else if ((idade >= 16 || idade < 18) || (idade > 70)) {
             lblVotoOpcional.setText("sim");
