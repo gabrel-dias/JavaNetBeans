@@ -48,11 +48,6 @@ public class TelaIdade extends javax.swing.JFrame {
         jLabel1.setText("Ano de nascimento:");
 
         txtAno.setToolTipText("");
-        txtAno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnoActionPerformed(evt);
-            }
-        });
 
         btnCalculaIdade.setText("Calcular");
         btnCalculaIdade.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +158,7 @@ public class TelaIdade extends javax.swing.JFrame {
 
     private void btnCalculaIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaIdadeActionPerformed
         // pegando o valor digitado no campo da idade
+        // TODO fazer tratamento de exceção caso o campo de ano esteja vazio
         int ano = Integer.parseInt(txtAno.getText());
 
         // definindo o ano atual de acordo com a data do sistema
@@ -174,29 +170,22 @@ public class TelaIdade extends javax.swing.JFrame {
         // verificando maioridade com operador ternário
         lblMaioridade.setText(Integer.parseInt(lblIdade.getText()) >= 18 ? "sim" : "não");
 
-//        if (Integer.parseInt(lblIdade.getText()) >= 18) {
-//            lblMaioridade.setText("sim");
-//        } else {
-//            lblMaioridade.setText("não");
-//        }
-// verificando se voto é ou não opcional
+        // verificando se voto é ou não opcional
         int idade = Integer.parseInt(lblIdade.getText());
 
         if (idade < 16) {
             lblVotoOpcional.setText("não vota");
-        } else if ((idade >= 16 || idade < 18) || (idade > 70)) {
+            // voto opcional se idade for entre 16 E 18 anos OU maior que 70
+        } else if ((idade >= 16 && idade < 18) || (idade > 70)) {
             lblVotoOpcional.setText("sim");
             if (idade >= 18 && idade < 70) {
                 lblVotoOpcional.setText("obrigatório");
             }
 
         }
+        // mostra um painel oculto durante a inicialização do controtutor com os resultados das verificações
         pnlResultados.setVisible(true);
     }//GEN-LAST:event_btnCalculaIdadeActionPerformed
-
-    private void txtAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnoActionPerformed
 
     /**
      * @param args the command line arguments
