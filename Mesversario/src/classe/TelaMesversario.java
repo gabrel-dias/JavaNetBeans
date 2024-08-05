@@ -6,7 +6,12 @@ package classe;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Dias
+ * Em todo dia 5 de todos os meses, minha namorada fica me cobrando por eu nunca me lembrar de
+ * comemorar nosso "mêsversário" e realmente eu não lembro, às vezes não sei nem qual é o dia da semana.
+ * De qualquer forma, o objetivo desse programa é praticar um pouco o que estou aprendendo no curso de
+ * Java do Guanabara e talvez fazer esse programa rodar em segundo plano no computador pra sempre me
+ * lembrar quando é o dia 5 de todo mês e quando eu devo mandar mensagem pra mulher lembrando do dia kk
  */
 public class TelaMesversario extends javax.swing.JFrame {
 
