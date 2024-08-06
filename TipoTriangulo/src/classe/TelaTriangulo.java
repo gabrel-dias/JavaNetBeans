@@ -16,6 +16,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
     public TelaTriangulo() {
         initComponents();
         setLocationRelativeTo(null);
+        pnlResultados.setVisible(false);
     }
 
     /**
@@ -37,11 +38,18 @@ public class TelaTriangulo extends javax.swing.JFrame {
         valorSegA = new javax.swing.JLabel();
         valorSegC = new javax.swing.JLabel();
         valorSegB = new javax.swing.JLabel();
+        btnVerificarSegmentos = new javax.swing.JButton();
+        pnlResultados = new javax.swing.JPanel();
+        lblLados = new javax.swing.JLabel();
+        lblTipoTriangulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tipos de triângulo");
         setResizable(false);
 
+        sldA.setMaximum(10);
+        sldA.setMinimum(1);
+        sldA.setValue(1);
         sldA.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sldAStateChanged(evt);
@@ -56,6 +64,9 @@ public class TelaTriangulo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         jLabel3.setText("<html>Segmento <b>b</b>:</html>");
 
+        sldB.setMaximum(10);
+        sldB.setMinimum(1);
+        sldB.setValue(1);
         sldB.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sldBStateChanged(evt);
@@ -65,6 +76,9 @@ public class TelaTriangulo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         jLabel4.setText("<html>Segmento <b>c</b>:</html>");
 
+        sldC.setMaximum(10);
+        sldC.setMinimum(1);
+        sldC.setValue(1);
         sldC.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sldCStateChanged(evt);
@@ -80,6 +94,43 @@ public class TelaTriangulo extends javax.swing.JFrame {
         valorSegB.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         valorSegB.setText("0");
 
+        btnVerificarSegmentos.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        btnVerificarSegmentos.setText("Verificar");
+        btnVerificarSegmentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerificarSegmentosActionPerformed(evt);
+            }
+        });
+
+        lblLados.setFont(new java.awt.Font("Dialog", 0, 25)); // NOI18N
+        lblLados.setForeground(new java.awt.Color(51, 51, 255));
+        lblLados.setText("<lados>");
+
+        lblTipoTriangulo.setFont(new java.awt.Font("Dialog", 0, 25)); // NOI18N
+        lblTipoTriangulo.setForeground(new java.awt.Color(255, 51, 51));
+        lblTipoTriangulo.setText("<tipoTriangulo>");
+
+        javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);
+        pnlResultados.setLayout(pnlResultadosLayout);
+        pnlResultadosLayout.setHorizontalGroup(
+            pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlResultadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLados)
+                    .addComponent(lblTipoTriangulo))
+                .addContainerGap(312, Short.MAX_VALUE))
+        );
+        pnlResultadosLayout.setVerticalGroup(
+            pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResultadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblLados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTipoTriangulo)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,15 +138,6 @@ public class TelaTriangulo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sldC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(valorSegC)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(94, 94, 94))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -110,7 +152,24 @@ public class TelaTriangulo extends javax.swing.JFrame {
                                 .addComponent(sldB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(valorSegB)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVerificarSegmentos)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sldC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(valorSegC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(94, 94, 94))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +196,11 @@ public class TelaTriangulo extends javax.swing.JFrame {
                             .addComponent(sldC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(valorSegC))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnVerificarSegmentos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(pnlResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -145,15 +208,41 @@ public class TelaTriangulo extends javax.swing.JFrame {
 
     private void sldAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldAStateChanged
         valorSegA.setText(Integer.toString(sldA.getValue()));
+        pnlResultados.setVisible(false);
     }//GEN-LAST:event_sldAStateChanged
 
     private void sldBStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldBStateChanged
         valorSegB.setText(Integer.toString(sldB.getValue()));
+        pnlResultados.setVisible(false);
     }//GEN-LAST:event_sldBStateChanged
 
     private void sldCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldCStateChanged
         valorSegC.setText(Integer.toString(sldC.getValue()));
+        pnlResultados.setVisible(false);
     }//GEN-LAST:event_sldCStateChanged
+
+    private void btnVerificarSegmentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarSegmentosActionPerformed
+        // pegando os valores inteiros dos sliders
+        int ladoA = sldA.getValue(), ladoB = sldB.getValue(), ladoC = sldC.getValue();
+
+        // visibilidade dos resultados aparece
+        pnlResultados.setVisible(true);
+        // verificação muito louca dos 3 lados dos sliders, nem sei se tá certo, aparentemente sim
+        if (ladoA == ladoB && ladoB == ladoC && ladoA == ladoC) {
+            lblLados.setText("3 lados iguais");
+            lblTipoTriangulo.setText("Equilátero");
+        } else if (ladoA != ladoB && ladoB != ladoC && ladoA != ladoC) {
+            lblLados.setText("Todos os lados diferentes");
+            lblTipoTriangulo.setText("Escaleno");
+        } else if ((ladoA == ladoB && ladoA != ladoC) || (ladoB == ladoC && ladoB != ladoA) || (ladoA == ladoC) && ladoB != ladoA) {
+            lblLados.setText("2 lados iguais e 1 diferente");
+            lblTipoTriangulo.setText("Isósceles");
+
+        }
+        {
+        }
+
+    }//GEN-LAST:event_btnVerificarSegmentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,10 +280,14 @@ public class TelaTriangulo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVerificarSegmentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblLados;
+    private javax.swing.JLabel lblTipoTriangulo;
+    private javax.swing.JPanel pnlResultados;
     private javax.swing.JSlider sldA;
     private javax.swing.JSlider sldB;
     private javax.swing.JSlider sldC;
