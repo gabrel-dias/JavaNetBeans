@@ -6,7 +6,7 @@ package classe;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Dias
  */
 public class TelaTriangulo extends javax.swing.JFrame {
 
@@ -17,6 +17,9 @@ public class TelaTriangulo extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         pnlResultados.setVisible(false);
+        valorSegA.setText(Integer.toString(sldA.getValue()));
+        valorSegB.setText(Integer.toString(sldB.getValue()));
+        valorSegC.setText(Integer.toString(sldC.getValue()));
     }
 
     /**
@@ -47,8 +50,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
         setTitle("Tipos de triângulo");
         setResizable(false);
 
-        sldA.setMaximum(10);
-        sldA.setMinimum(1);
+        sldA.setMaximum(5);
         sldA.setValue(1);
         sldA.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -64,8 +66,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         jLabel3.setText("<html>Segmento <b>b</b>:</html>");
 
-        sldB.setMaximum(10);
-        sldB.setMinimum(1);
+        sldB.setMaximum(5);
         sldB.setValue(1);
         sldB.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -76,8 +77,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         jLabel4.setText("<html>Segmento <b>c</b>:</html>");
 
-        sldC.setMaximum(10);
-        sldC.setMinimum(1);
+        sldC.setMaximum(5);
         sldC.setValue(1);
         sldC.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -227,6 +227,9 @@ public class TelaTriangulo extends javax.swing.JFrame {
 
         // visibilidade dos resultados aparece
         pnlResultados.setVisible(true);
+        
+        // método caso 1 dos lados seja 0
+        
         // verificação muito louca dos 3 lados dos sliders, nem sei se tá certo, aparentemente sim
         if (ladoA == ladoB && ladoB == ladoC && ladoA == ladoC) {
             lblLados.setText("3 lados iguais");
@@ -234,14 +237,11 @@ public class TelaTriangulo extends javax.swing.JFrame {
         } else if (ladoA != ladoB && ladoB != ladoC && ladoA != ladoC) {
             lblLados.setText("Todos os lados diferentes");
             lblTipoTriangulo.setText("Escaleno");
+
         } else if ((ladoA == ladoB && ladoA != ladoC) || (ladoB == ladoC && ladoB != ladoA) || (ladoA == ladoC) && ladoB != ladoA) {
             lblLados.setText("2 lados iguais e 1 diferente");
             lblTipoTriangulo.setText("Isósceles");
-
         }
-        {
-        }
-
     }//GEN-LAST:event_btnVerificarSegmentosActionPerformed
 
     /**
