@@ -127,6 +127,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="sldB">
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sldBStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -137,6 +140,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="sldC">
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sldCStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="valorSegA">
       <Properties>

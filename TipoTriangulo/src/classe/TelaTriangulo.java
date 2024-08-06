@@ -56,8 +56,20 @@ public class TelaTriangulo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         jLabel3.setText("<html>Segmento <b>b</b>:</html>");
 
+        sldB.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sldBStateChanged(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         jLabel4.setText("<html>Segmento <b>c</b>:</html>");
+
+        sldC.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sldCStateChanged(evt);
+            }
+        });
 
         valorSegA.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         valorSegA.setText("0");
@@ -134,6 +146,14 @@ public class TelaTriangulo extends javax.swing.JFrame {
     private void sldAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldAStateChanged
         valorSegA.setText(Integer.toString(sldA.getValue()));
     }//GEN-LAST:event_sldAStateChanged
+
+    private void sldBStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldBStateChanged
+        valorSegB.setText(Integer.toString(sldB.getValue()));
+    }//GEN-LAST:event_sldBStateChanged
+
+    private void sldCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldCStateChanged
+        valorSegC.setText(Integer.toString(sldC.getValue()));
+    }//GEN-LAST:event_sldCStateChanged
 
     /**
      * @param args the command line arguments
