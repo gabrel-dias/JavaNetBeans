@@ -212,7 +212,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblLados" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblETriangulo" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTipoTriangulo" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -223,7 +223,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblLados" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblETriangulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblTipoTriangulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="56" max="32767" attributes="0"/>
@@ -232,7 +232,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblLados">
+        <Component class="javax.swing.JLabel" name="lblETriangulo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="25" style="0"/>
@@ -240,7 +240,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;lados&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;triangulo?&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTipoTriangulo">

@@ -45,7 +45,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
         valorSegB = new javax.swing.JLabel();
         btnVerificarSegmentos = new javax.swing.JButton();
         pnlResultados = new javax.swing.JPanel();
-        lblLados = new javax.swing.JLabel();
+        lblETriangulo = new javax.swing.JLabel();
         lblTipoTriangulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,9 +104,9 @@ public class TelaTriangulo extends javax.swing.JFrame {
             }
         });
 
-        lblLados.setFont(new java.awt.Font("Dialog", 0, 25)); // NOI18N
-        lblLados.setForeground(new java.awt.Color(51, 51, 255));
-        lblLados.setText("<lados>");
+        lblETriangulo.setFont(new java.awt.Font("Dialog", 0, 25)); // NOI18N
+        lblETriangulo.setForeground(new java.awt.Color(51, 51, 255));
+        lblETriangulo.setText("<triangulo?>");
 
         lblTipoTriangulo.setFont(new java.awt.Font("Dialog", 0, 25)); // NOI18N
         lblTipoTriangulo.setForeground(new java.awt.Color(255, 51, 51));
@@ -119,7 +119,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
             .addGroup(pnlResultadosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLados)
+                    .addComponent(lblETriangulo)
                     .addComponent(lblTipoTriangulo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -127,7 +127,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
             pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResultadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblLados)
+                .addComponent(lblETriangulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTipoTriangulo)
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -221,26 +221,32 @@ public class TelaTriangulo extends javax.swing.JFrame {
     }//GEN-LAST:event_sldCStateChanged
 
     private void btnVerificarSegmentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarSegmentosActionPerformed
-        // pegando os valores inteiros dos sliders
-        int ladoA = sldA.getValue(), ladoB = sldB.getValue(), ladoC = sldC.getValue();
+        // pegando os valores dos sliders
+        int a = sldA.getValue(), b = sldB.getValue(), c = sldC.getValue();
 
-        // TODO fazer um método para usar caso 1 dos lados seja == 0
-        // verificação muito louca dos 3 lados dos sliders, nem sei se tá certo, aparentemente sim
-        if (ladoA == ladoB && ladoB == ladoC && ladoA == ladoC) {
-            lblLados.setText("Três lados iguais");
-            lblTipoTriangulo.setText("Equilátero");
-        } else if (ladoA != ladoB && ladoB != ladoC && ladoA != ladoC) {
-            lblLados.setText("Todos os lados diferentes");
-            lblTipoTriangulo.setText("Escaleno");
+        // verificando se forma um triângulo ou não
+        if (a < b + c && b < a + c && c < a + b) {
+            lblETriangulo.setText("<html>Os lados a, b e c formam um triângulo</html>");
+            // caso seja um triângulo, será verificado qual tipo de triângulo os segmentos formam
+            if (a == b && b == c && a == c) {
+                lblTipoTriangulo.setText("Equilátero");
+            } else if (a != b && b != c && a != c) {
+                lblTipoTriangulo.setText("Escaleno");
 
-        } else if ((ladoA == ladoB && ladoA != ladoC) || (ladoB == ladoC && ladoB != ladoA) || (ladoA == ladoC) && ladoB != ladoA) {
-            lblLados.setText("Dois lados iguais e um diferente");
-            lblTipoTriangulo.setText("Isósceles");
+            } else if ((a == b && a != c) || (b == c && b != a) || (a == c) && b != a) {
+                lblTipoTriangulo.setText("Isósceles");
+            }
+                        lblTipoTriangulo.setVisible(true);
+
+            pnlResultados.setVisible(true);
+            JOptionPane.showMessageDialog(this, pnlResultados, "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            lblETriangulo.setText("<html>Os lados a, b e c não formam um triângulo</html>");
+            lblTipoTriangulo.setVisible(false);
+            pnlResultados.setVisible(true);
+            JOptionPane.showMessageDialog(this, pnlResultados, "Resultado", JOptionPane.WARNING_MESSAGE);
+
         }
-
-        // janela com os resultados aparece
-        pnlResultados.setVisible(true);
-        JOptionPane.showMessageDialog(this, pnlResultados, "Resultados", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnVerificarSegmentosActionPerformed
 
     /**
@@ -284,7 +290,7 @@ public class TelaTriangulo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lblLados;
+    private javax.swing.JLabel lblETriangulo;
     private javax.swing.JLabel lblTipoTriangulo;
     private javax.swing.JPanel pnlResultados;
     private javax.swing.JSlider sldA;
