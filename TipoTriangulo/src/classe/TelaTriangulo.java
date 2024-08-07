@@ -228,12 +228,12 @@ public class TelaTriangulo extends javax.swing.JFrame {
         if (a < b + c && b < a + c && c < a + b) {
             lblETriangulo.setText("<html>Os lados a, b e c formam um triângulo</html>");
             // caso seja um triângulo, será verificado qual tipo de triângulo os segmentos formam
-            if (a == b && b == c && a == c) {
+            if (a == b && b == c) {
                 lblTipoTriangulo.setText("Equilátero");
             } else if (a != b && b != c && a != c) {
                 lblTipoTriangulo.setText("Escaleno");
 
-            } else if ((a == b && a != c) || (b == c && b != a) || (a == c) && b != a) {
+            } else if ((a == b && a != c) || (b == c && b != a) || (a == c) && b != a) { // nem precisava fazer essa verificação, mas tá aí
                 lblTipoTriangulo.setText("Isósceles");
             }
                         lblTipoTriangulo.setVisible(true);
