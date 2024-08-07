@@ -4,6 +4,9 @@
  */
 package classe;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author Gabriel Dias
@@ -39,6 +42,11 @@ public class TelaMesversario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnAnosMeses.setText("Ver anos e meses");
+        btnAnosMeses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnosMesesActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Há quanto tempo Gabriel e Bruna estão namorando?");
@@ -84,6 +92,10 @@ public class TelaMesversario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAnosMesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnosMesesActionPerformed
+        Calendar calendario = Calendar.getInstance();
+    }//GEN-LAST:event_btnAnosMesesActionPerformed
 
     /**
      * @param args the command line arguments
