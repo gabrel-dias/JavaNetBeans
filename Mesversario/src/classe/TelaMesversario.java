@@ -94,6 +94,7 @@ public class TelaMesversario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnosMesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnosMesesActionPerformed
+        // TODO a ideia aqui é fazer um contador de quanto tempo estamos juntos
         Calendar calendario = Calendar.getInstance();
     }//GEN-LAST:event_btnAnosMesesActionPerformed
 
