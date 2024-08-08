@@ -33,6 +33,7 @@ public class TelaWhile extends javax.swing.JFrame {
         spnVezes = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnContar.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btnContar.setText("Contar");
@@ -46,7 +47,6 @@ public class TelaWhile extends javax.swing.JFrame {
         jLabel1.setText("Contagem:");
 
         lblContagem.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        lblContagem.setText("teste");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Vezes que será contado:");
@@ -63,13 +63,13 @@ public class TelaWhile extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(lblContagem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblContagem, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(spnVezes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnContar))
-                .addGap(255, 255, 255))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,13 +78,17 @@ public class TelaWhile extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(spnVezes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblContagem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(lblContagem, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addGap(0, 38, Short.MAX_VALUE)))
+                .addGap(53, 53, 53)
                 .addComponent(btnContar)
-                .addGap(42, 42, 42))
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -97,11 +101,10 @@ public class TelaWhile extends javax.swing.JFrame {
         String contagem = "<html>";
         int contador = 0;
         while (vezes >= contador) {
-            contagem += " " + contador;
+            contagem += ", " + contador;
             contador++;
         }
-        contagem += "</html>";
-        lblContagem.setText(contagem);
+        lblContagem.setText(contagem + "</html>");
     }//GEN-LAST:event_btnContarActionPerformed
 
     /**
