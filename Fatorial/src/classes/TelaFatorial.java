@@ -94,17 +94,17 @@ public class TelaFatorial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void spnNumeroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnNumeroStateChanged
-        int fatorial = Integer.parseInt(spnNumero.getValue().toString());
-        int i = 0;
-        int resultado=0;
+        int n = Integer.parseInt(spnNumero.getValue().toString());
+        int fatorial=1;
+        int i = 1;
         
-        while (i != fatorial) {
-            resultado = fatorial * (fatorial-1);
+        while (i <= n) {
+            fatorial *=i;
             i++;
         }
 
         lblResultado.setVisible(true);
-        lblResultado.setText(Integer.toString(resultado));
+        lblResultado.setText(Integer.toString(fatorial));
     }//GEN-LAST:event_spnNumeroStateChanged
 
     /**
