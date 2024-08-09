@@ -101,7 +101,7 @@ public class TelaWhile extends javax.swing.JFrame {
         String contagem = "<html>";
         int contador = 0;
         while (vezes >= contador) {
-            contagem += ", " + contador;
+            contagem += " " + contador;
             contador++;
         }
         lblContagem.setText(contagem + "</html>");
