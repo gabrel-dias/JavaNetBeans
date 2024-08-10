@@ -62,6 +62,7 @@ public class TelaFatorial extends javax.swing.JFrame {
         jLabel3.setText("<html>Cálculo: ");
 
         lblFatores.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        lblFatores.setForeground(new java.awt.Color(0, 0, 255));
         lblFatores.setText("jLabel4");
 
         javax.swing.GroupLayout pnlCalculoLayout = new javax.swing.GroupLayout(pnlCalculo);
