@@ -133,14 +133,15 @@ public class TelaFatorial extends javax.swing.JFrame {
         // calculando o fatorial
         while (i <= n) {
             fatorial *= i;
+            // mostra quais números foram utilizados para calcular o fatorial
             if (i < n) {
                 calculo += i + ".";
 
             } else {
                 calculo += i;
             }
+            
             i++;
-            System.out.println(calculo);
         }
 
         lblResultado.setVisible(true);
